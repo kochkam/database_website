@@ -1,0 +1,10 @@
+<html>
+<h1>Update {{vgid.game_title}}: ID:{{vgid.video_game_id}}:</h1>
+<form id="update-vg" action="/browse_video_games" method="post">
+    Game Title: <input type="text" name="game_title" value="{{vgid.game_title}}"><br>
+    Price:  <input type="number" name="price" value="{{vgid.price}}"><br>
+    Rating: <input type="number" name="vg_rating" value="{{vgid.vg_rating}}"><br>
+    Quantity: <input type="number" name="quantity" value="{{vgid.quantity}}"><br>
+</form>
+<button onclick="updateVG({{vgid.video_game_id}})">Update</button>
+</html>

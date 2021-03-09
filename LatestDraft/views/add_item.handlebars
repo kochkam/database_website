@@ -1,0 +1,137 @@
+​  
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset = "utf-8">
+    <meta name = "viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name = "description" content = "">
+    <meta name = "author" content = "">
+    <title>Elite_Games</title>
+    <!-- Bootstrap core CSS -->
+    <link href = "vendor/bootstrap/css/bootstrap.min.css" rel = "stylesheet">
+    <!-- Custom fonts used in webpages -->
+    <link href = "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel = "stylesheet" type ="text/css">
+    <link href = "https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type = "text/css">
+    <!-- Custom styles for webpages -->
+    <link href = "css/business-casual.css" rel = "stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    {{#each jsscripts}}
+    <script src="/static/{{this}}"></script>
+    {{/each}}
+  </head>
+  <body>
+    <div class = "tagline-upper text-center text-heading text-shadow text-black mt-5 d-none d-lg-block">Elite_Games</div>
+    <div class = "tagline-lower text-center text-expanded text-shadow text-uppercase text-black mb-5 d-none d-lg-block">1 Physical Address| 2City, 3State 00000 | 123.456.7890</div>
+    <!-- Navigation bar -->
+    <nav class = "navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
+      <div class = "container">
+        <a class = "navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href = "#">Start Bootstrap</a>
+        <button class = "navbar-toggler" type ="button" data-toggle ="collapse" data-target = "#navbarResponsive" aria-controls = "navbarResponsive" aria-expanded = "false" aria-label = "Toggle navigation">
+          <span class = "navbar-toggler-icon"></span>
+        </button>
+        <div class = "collapse navbar-collapse" id = "navbarResponsive">
+          <ul class = "navbar-nav mx-auto">
+            <li class = "nav-item px-lg-4">
+              <a class = "nav-link text-uppercase text-expanded" href = "index.html">Index</a>
+            </li>
+            <li class = "nav-item px-lg-4">
+              <a class = "nav-link text-uppercase text-expanded" href = "/home">Home</a>
+                <span class = "sr-only">(current)</span>
+              </a>
+            </li>
+            <li class = "nav-item px-lg-4">
+              <a class = "nav-link text-uppercase text-expanded" href = "/register">Create Account</a>
+            </li>
+            <li class = "nav-item px-lg-4">
+              <a class = "nav-link text-uppercase text-expanded" href = "/browse_video_games">Browse Video Games</a>
+            </li>
+            <li class = "nav-item px-lg-4">
+              <a class = "nav-link text-uppercase text-expanded" href = "/review_orders">Review Orders</a>
+              <span class = "sr-only">(current)</span>
+              </a>
+            </li>
+            <li class = "nav-item px-lg-4">
+                <a class = "nav-link text-uppercase text-expanded" href = "/inventory">Inventory Management</a>
+            </li>
+            <li class = "nav-item active px-lg-4">
+                <a class = "nav-link text-uppercase text-expanded" href = "/add_item">Add Item to Order</a>
+                 <span class = "sr-only">(current)</span>
+            </li>            
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class = "container">
+<html>
+<body>
+{{#each foo}}
+{{this}}
+{{/each}}
+
+
+<div> 
+    <form action="/add_item" method="post">
+         class = "container">
+            <h1>Insert New Item into Ordered Items Table:</h1>
+            <p>Please fillout the form below completely to add a new item to a particular order.</p>
+            Select Order Number to Insert Item:
+                <select  name="order_num"> 
+                {{#each title}}
+                <option value="{{order_num}}">{{order_num}}</option>
+                {{/each}}
+             </select><br />
+            <legend><b>Fields to Add:</b></legend>
+            Select Title:
+                <select  name="video_game_id"> 
+                {{#each title}}
+                <option value="{{video_game_id}}">{{game_title}}</option>
+                {{/each}}
+             </select><br />
+            Order Returned(Yes/No):
+            <input type="text" name="order_returned" size="30" maxlength="100" required>
+            <br />
+        <button type="submit" value="Submit review" id="submit">Submit</button>
+      
+    </form>
+</div>
+<h3>Customer Items</h3>
+   <table>
+      <thead>
+         <th>Item ID</th>
+         <th>Order Returned</th>
+         <th>Order Number</th>
+         <th>Video Game ID</th>
+         <th>Game Title</th>
+         <th>Order Number</th>
+         <th>Video Game ID</th>
+         <th>Studio ID</th>
+         <th>Studio Name</th>
+         <th>Quantity</th>
+         <th>Price</th>
+         <th>Rating</th>
+         <th>Order Returned?</th>
+
+     </thead>
+    <tbody>
+        {{#each title}}
+        <tr>
+          <td>{{customer_id}}</td>
+          <td>{{first_name}}</td>
+          <td>{{last_name}}</td>
+          <td>{{item_id}}</td>
+          <td>{{game_title}}</td>
+          <td>{{order_num}}</td>
+          <td>{{video_game_id}}</td>
+          <td>{{studio_id}}</td>
+          <td>{{studio_name}}</td>
+          <td>{{quantity}}</td>
+          <td>{{price}}</td>
+          <td>{{vg_rating}}</td>
+          <td>{{order_returned}}</td>
+        <tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+</body>

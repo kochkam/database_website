@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset = "utf-8">
+    <meta name = "viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name = "description" content = "">
+    <meta name = "author" content = "">
+    <title>Elite_Games</title>
+    <!-- Bootstrap core CSS -->
+    <link href = "vendor/bootstrap/css/bootstrap.min.css" rel = "stylesheet">
+    <!-- Custom fonts used in webpages -->
+    <link href = "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel = "stylesheet" type ="text/css">
+    <link href = "https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type = "text/css">
+    <!-- Custom styles for webpages -->
+    <link href = "css/business-casual.css" rel = "stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    {{#each jsscripts}}
+    <script src="/static/{{this}}"></script>
+    {{/each}}
+  </head>
+  <body>
+    <div class = "tagline-upper text-center text-heading text-shadow text-black mt-5 d-none d-lg-block">Elite_Games</div>
+    <div class = "tagline-lower text-center text-expanded text-shadow text-uppercase text-black mb-5 d-none d-lg-block">1 Physical Address| 2City, 3State 00000 | 123.456.7890</div>
+    <!-- Navigation bar -->
+    <nav class = "navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
+      <div class = "container">
+        <a class = "navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href = "#">Start Bootstrap</a>
+        <button class = "navbar-toggler" type ="button" data-toggle ="collapse" data-target = "#navbarResponsive" aria-controls = "navbarResponsive" aria-expanded = "false" aria-label = "Toggle navigation">
+          <span class = "navbar-toggler-icon"></span>
+        </button>
+        <div class = "collapse navbar-collapse" id = "navbarResponsive">
+          <ul class = "navbar-nav mx-auto">
+            <li class = "nav-item px-lg-4">
+              <a class = "nav-link text-uppercase text-expanded" href = "index.html">Index</a>
+            </li>
+            <li class = "nav-item px-lg-4">
+              <a class = "nav-link text-uppercase text-expanded" href = "/home">Home</a>
+            </li>
+            <li class = "nav-item px-lg-4">
+              <a class = "nav-link text-uppercase text-expanded" href = "/register">Create Account</a>
+            </li>
+            <li class = "nav-item active px-lg-4">
+              <a class = "nav-link text-uppercase text-expanded" href = "/browse_video_games">Browse Video Games</a>
+              <span class = "sr-only">(current)</span>
+              </a>
+            </li>
+            <li class = "nav-item px-lg-4">
+              <a class = "nav-link text-uppercase text-expanded" href = "/review_orders">Review Orders</a>
+            </li>
+            <li class = "nav-item px-lg-4">
+                <a class = "nav-link text-uppercase text-expanded" href = "/inventory">Inventory Management</a>
+            </li>
+            <li class = "nav-item px-lg-4">
+                <a class = "nav-link text-uppercase text-expanded" href = "/add_item">Add Item to Order</a>
+            </li>  
+          </ul>
+        </div>
+      </div>
+    </nav>
+{{#each foo}}
+{{this}}
+{{/each}}
+
+
+<h3>Current Video Games:</h3>
+<table>
+    <thead> 
+        <th>|Video Game ID|</th> 
+        <th>|Studio Key|</th>  
+        <th>|Studio Name|</th>
+        <th>|Game Title|</th>
+        <th>|Price|</th>
+        <th>|Quantity In Stock|</th>
+        <th>|Video Game Rating|</th>
+    </thead> 
+    <tbody>
+        {{#each vgresults}} 
+        <tr> 
+            <td>{{video_game_id}}</td> 
+            <td>{{studio_key}}</td> 
+            <td>{{studio_name}}</td>
+            <td>{{game_title}}</td> 
+            <td>{{price}}</td> 
+            <td>{{quantity}}</td> 
+            <td>{{vg_rating}}</td> 
+            <td><button onclick="deleteVG({{video_game_id}})">Delete</button></td>
+            <td><a href="/browse_video_games/{{video_game_id}}">Update</a></td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> ​​
+</body> 
+
+
+<h3>Add New Video Games:</h3>
+<form id="addvg" action="/browse_video_games" method="post">
+    Studio Name: <select  name="studio_key"> 
+        {{#each vgresults}}
+        <option value="{{studio_key}}">{{studio_name}}</option>
+        {{/each}}
+    </select><br>
+    Game Title: <input type="text" name="game_title"><br>
+    Game Price: <input type="number" name="price"><br>
+    Game Rating: <input type="number" name="vg_rating"><br>
+    Game Quantity: <input type="number" name="quantity"><br>
+    <input type="submit" value="Submit">
+ </form>
+<br/>
+
+
+<!--</body> -->
+</html> 
+
+    <footer class = "text-center py-5">
+      <div class = "container">
+        <p class = "m-0">Elite_Games 2020</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript --> <!--
+    <script src = "vendor/jquery/jquery.min.js"></script>
+    <script src = "vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> -->
